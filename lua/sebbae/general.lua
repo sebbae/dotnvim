@@ -10,7 +10,8 @@ vim.keymap.set("n", "<c-d>", ":bd<cr>", { silent = true })
 
 vim.keymap.set("n", "<cr><cr>", ":noh<cr>", { silent = true })
 
-vim.keymap.set("n", "<c-space>", function()
+
+local toggleQuickfix = function()
     local quickfixbuffer = -1
     local curbuf = -1
     local active = false
@@ -37,22 +38,14 @@ vim.keymap.set("n", "<c-space>", function()
     else
         vim.cmd("copen")
     end
-end , { silent = true })
+end
 
---vim.keymap.set("n", "<c-n>", ":Vexplore<cr>", { silent = true })
-vim.keymap.set("n", "<c-n>", function()
+local toggleNetRW = function(dir)
     local is_open = false
     local netrwbuf = -1
 
     for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-
-      if vim.api.nvim_buf_get_option(buffer, 'modified') then
-          print("modified")
-    else
-          print("not modified")
-      end
         local filetype = vim.fn.getbufvar(buffer, '&filetype')
-        print(buffer .. ' filetype ' .. filetype)
         if filetype == 'netrw' then
             is_open = true
             netrwbuf = buffer
@@ -61,16 +54,26 @@ vim.keymap.set("n", "<c-n>", function()
 
     if is_open then
         local info = vim.fn.getbufinfo(netrwbuf)[1]
-        print(info)
         local window = info.windows[1]
-        print('Close window ' .. window)
+        if (#vim.api.nvim_list_wins() == 1) then
+            return
+        end
         vim.api.nvim_win_close(window, true)
-    else
+    elseif (dir == nil or dir == '') then
         vim.cmd('Lexplore')
+    else
+        vim.cmd('Lexplore ' .. dir)
     end
+end
+
+vim.keymap.set("n", "<c-space>", toggleQuickfix, { silent = true })
+vim.keymap.set("n", "<c-n>", toggleNetRW, { silent = false })
+vim.keymap.set("n", "<m-n>", function()
+    toggleNetRW(vim.fn.expand('%:p:h'))
 end, { silent = false })
 
 
 vim.api.nvim_create_user_command('DeleteTrailingWS', function()
     vim.cmd("%s/\\s\\+$//ge")
 end, {})
+
