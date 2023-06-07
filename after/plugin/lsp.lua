@@ -49,6 +49,34 @@ end)
 
 lsp.setup()
 
+local util = require 'lspconfig.util'
+require('lspconfig.configs').cds_lsp = {
+  default_config = {
+    name = 'cds-lsp',
+    cmd = { 'cds-lsp', '--stdio' },
+    filetypes = { 'cds' },
+    init_options = {
+      provideFormatter = true,
+    },
+    root_dir = util.find_git_ancestor,
+    single_file_support = true,
+  },
+  docs = {
+    description = [[
+https://www.npmjs.com/package/@sap/cds-lsp
+
+cds-lsp, a language server for CAP CDS
+
+`cds-lsp` can be installed via `npm`:
+```sh
+npm i -g @sap/cds-lsp
+```
+]],
+  },
+}
+require('lspconfig').cds_lsp.setup({})
+
+
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
