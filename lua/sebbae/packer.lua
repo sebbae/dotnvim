@@ -78,6 +78,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'tpope/vim-fugitive',
+    tag = 'v3.7'
+  }
+
+  use {
       'taybart/b64.nvim',
       commit = '0efc9f2d5baf546298c3ef936434fe5783d7ecb3'
   }
