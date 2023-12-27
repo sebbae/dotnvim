@@ -79,3 +79,9 @@ vim.api.nvim_create_user_command('DeleteTrailingWS', function()
     vim.cmd("%s/\\s\\+$//ge")
 end, {})
 
+-- Copilot
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "]]", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "[[", 'copilot#Dismiss()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Next()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-[>", 'copilot#Previous()', { silent = true, expr = true })
