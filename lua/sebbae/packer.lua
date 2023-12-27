@@ -76,4 +76,10 @@ return require('packer').startup(function(use)
       tag = "v3.*",
       requires = 'nvim-tree/nvim-web-devicons'
   }
+
+  use {
+      'taybart/b64.nvim',
+      commit = '0efc9f2d5baf546298c3ef936434fe5783d7ecb3'
+  }
+
 end)

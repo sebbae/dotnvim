@@ -10,6 +10,8 @@ vim.keymap.set("n", "<c-d>", ":bd<cr>", { silent = true })
 
 vim.keymap.set("n", "<cr><cr>", ":noh<cr>", { silent = true })
 
+vim.keymap.set("n", "<leader>64d", "B64Decode", { silent = true })
+vim.keymap.set("n", "<leader>64e","B64Encode", { silent = true })
 
 local toggleQuickfix = function()
     local quickfixbuffer = -1
