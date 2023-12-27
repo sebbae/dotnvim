@@ -11,13 +11,24 @@ return require('packer').startup(function(use)
   }
 
   use ({
-	  'folke/tokyonight.nvim',
-	  config = function()
-		  vim.cmd('colorscheme tokyonight-storm')
-	  end
+      'ellisonleao/gruvbox.nvim',
+      config = function()
+          vim.o.background = 'dark'
+      end
   })
 
-  use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use ({
+      'sainnhe/gruvbox-material',
+      config = function()
+          vim.g.gruvbox_material_background = 'medium'
+      end
+  })
+
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      tag = 'v0.9.*',
+      run = ':TSUpdate'
+  }
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
