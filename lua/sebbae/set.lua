@@ -18,3 +18,5 @@ vim.opt.number = true
 
 vim.opt.formatoptions:remove('r')
 
+vim.opt.cursorline = true
+vim.opt.listchars = 'tab:→\\ ,trail:~,extends:>,precedes:<'
