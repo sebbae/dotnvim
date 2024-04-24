@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -30,7 +30,6 @@ lsp.set_preferences({
     }
 })
 
-lsp.on_attach(on_attach)
 
 local on_attach = function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -51,6 +50,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 end
 
+lsp.on_attach(on_attach)
 lsp.setup()
 
 local util = require 'lspconfig.util'
