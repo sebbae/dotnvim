@@ -1,5 +1,5 @@
 require("sebbae.general")
-require("sebbae.packer")
+require("sebbae.lazy")
 require("sebbae.set")
 require("sebbae.netrw")
 require("sebbae.filetype")
