@@ -24,5 +24,6 @@
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "20656efd7a0dbb4483290649c9671af14b0cfb0d" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
-  "vim-fugitive": { "branch": "master", "commit": "dac8e5c2d85926df92672bf2afb4fc48656d96c7" }
+  "vim-fugitive": { "branch": "master", "commit": "dac8e5c2d85926df92672bf2afb4fc48656d96c7" },
+  "vim-helm": { "branch": "master", "commit": "ae1ebc160d2b9b90108477ab10df7a4fc501e358" }
 }
