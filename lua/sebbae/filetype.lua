@@ -4,6 +4,12 @@ vim.filetype.add({
   },
 })
 
+vim.filetype.add({
+  extension = {
+    http = 'http'
+  },
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "json",
 	callback = function()
