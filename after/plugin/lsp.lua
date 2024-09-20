@@ -12,7 +12,7 @@ lsp.configure('lua_ls', {
 })
 
 lsp.ensure_installed({
-	'tsserver',
+	'ts_ls',
 	'eslint',
 	'lua_ls',
 	'rust_analyzer',
@@ -176,4 +176,21 @@ vim.diagnostic.config({
   float = {
     source = "always",  -- Or "if_many"
   }
+})
+
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+  callback = function(args)
+    -- 2
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      -- 3
+      --buffer = args.buf,
+      pattern = "*.go",
+      callback = function()
+        -- 4 + 5
+        vim.lsp.buf.format {async = false, id = args.data.client_id }
+      end,
+    })
+  end
 })
