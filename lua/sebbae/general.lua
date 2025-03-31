@@ -6,6 +6,13 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
 vim.keymap.set("i", "jj", "<esc>", { silent = true })
+vim.keymap.set("i", "<leader>uu", "<c-k>:u", { silent = true })
+vim.keymap.set("i", "<leader>oo", "<c-k>:o", { silent = true })
+vim.keymap.set("i", "<leader>aa", "<c-k>:a", { silent = true })
+vim.keymap.set("i", "<leader>UU", "<c-k>:U", { silent = true })
+vim.keymap.set("i", "<leader>OO", "<c-k>:O", { silent = true })
+vim.keymap.set("i", "<leader>AA", "<c-k>:A", { silent = true })
+vim.keymap.set("i", "<leader>ss", "<c-k>:ß", { silent = true })
 
 vim.keymap.set("n", "<tab>", ":bnext<cr>", { silent = true })
 vim.keymap.set("n", "<s-tab>", ":bprev<cr>", { silent = true })
