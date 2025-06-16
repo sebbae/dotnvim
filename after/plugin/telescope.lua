@@ -21,7 +21,8 @@ vim.keymap.set('n', '<M-p>', function()
     --builtin.find_files({ find_command = {'rg', '--files', '-H', '-I', '!.git' }})
 end, {})
 vim.keymap.set('n', '<leader>s', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+    builtin.live_grep()
+	--builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end, {})
 vim.keymap.set('n', '<leader>p', builtin.buffers, {})
 vim.keymap.set('n', '<leader>m', builtin.lsp_document_symbols, {})
