@@ -1,6 +1,10 @@
 return {{
     'akinsho/bufferline.nvim',
     tag = "v4.6.1",
-    dependencies = 'nvim-tree/nvim-web-devicons'
+    event = "VimEnter",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+        vim.opt.termguicolors = true
+        require("bufferline").setup{}
+    end
 }}
-

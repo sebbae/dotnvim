@@ -1,13 +1,11 @@
 return {{
   "coder/claudecode.nvim",
+  cmd = { "ClaudeCode", "ClaudeCodeFocus", "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd",
+          "ClaudeCodeDiffAccept", "ClaudeCodeDiffDeny", "ClaudeCodeSelectModel" },
   dependencies = { "folke/snacks.nvim" },
   config = true,
   opts = {
     terminal = {
-      -- provider = "external",
-      -- provider_opts = {
-      --     external_terminal_cmd = "tmux split-window -h %s",
-      -- }
       ---@module "snacks"
       ---@type snacks.win.Config|{}
       snacks_win_opts = {
@@ -50,7 +48,6 @@ return {{
       desc = "Add file",
       ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
     },
-    -- Diff management
     { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
   },
